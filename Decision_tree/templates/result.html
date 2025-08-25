@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kết quả</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-4">
+  {% if label == 'e' %}
+    <div class="alert alert-success fs-4 fw-bold">
+      🍄 Kết quả: Nấm <span class="text-success">ĂN ĐƯỢC (edible)</span>
+    </div>
+  {% else %}
+    <div class="alert alert-danger fs-4 fw-bold">
+      ☠️ Kết quả: Nấm <span class="text-danger">ĐỘC (poisonous)</span>
+    </div>
+  {% endif %}
+
+  <a href="/" class="btn btn-link">← Quay lại</a>
+
+  <h4 class="mt-4">Thuộc tính đã gửi:</h4>
+  <div class="d-flex flex-wrap">
+    {% for k, v in sample.items() %}
+      <span class="badge bg-secondary m-1 p-2 fs-6">{{ k }}: {{ v }}</span>
+    {% endfor %}
+  </div>
+</div>
+</body>
+</html>
